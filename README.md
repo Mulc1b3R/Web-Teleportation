@@ -58,8 +58,9 @@ python ico.py
 ### Step 3: Pull the Master Compiler Trigger
 Execute your batch foundry script loop via PowerShell or your integrated VS Code terminal console to forge the entire fleet live:
 ```powershell
-python blue2.py
+batch2
 ```
+copy and paste in to terminal.
 
 ### Step 4: Complete Portable Deployment
 Open your brand-new `.\Web Shortcuts\` output folder. Your desktop grid canvas layout is now populated with pristine, ultra-lightweight, 4KB `.exe` launch utilities. 
