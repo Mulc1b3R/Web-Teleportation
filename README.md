@@ -25,7 +25,7 @@ The architecture operates as a highly optimized, dual-stage automated pipeline:
 
 ```text
   [ Stage 1: ico.py ]      ──► Extracts high-res visual emblems straight to .\harvested_icons\
-  [ Stage 2: blue2.py ]    ──► Compiles 4KB native machine code via hidden Windows csc.exe compiler
+  [ Stage 2: batch2 ]    ──► Compiles 4KB native machine code via hidden Windows csc.exe compiler copy and paste in to terminal
   [ Destination Node ]     ──► Flawless, sub-second click-and-go teleportation straight to Desktop
 ```
 
