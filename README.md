@@ -67,6 +67,32 @@ Open your brand-new `.\Web Shortcuts\` output folder. Your desktop grid canvas l
 
 **Because these micro-binaries carry zero runtime extraction footprint, you can copy-and-paste them anywhere—across local flash drives, shared networks, or desktop directories—and run them instantly with a double-click on any Windows machine on the planet.**
 
+### Step 5: Forging Custom Independent Shortcuts Natively
+
+If you want to bypass the automated pre-set domain arrays completely and forge a brand-new, bespoke 4KB micro-binary shortcut for your own private domains or network coordinates, you use the integrated graphical user interface:
+
+1. **Fire the Wizard Launcher Engine:**
+   Run the master graphical interface from your terminal pane or PowerShell window:
+   ```powershell
+   python shortcut_factory.py
+   ```
+
+2. **Expand the Terminal Window Canvas:**
+   **CRITICAL SUBSYSTEM ACTION:** Upon launching, ensure the Tkinter GUI system window panel is **fully expanded or maximized horizontally on your screen layout**. This ensures that the custom text fields, the target data matrices, and the hidden **`BROWSE`** asset selection button on the right-hand margin are 100% visible and un-clipped flat to the glass.
+
+3. **Map Your Transactional Identity Parameters:**
+   * **SHORTCUT NAME:** Type your target descriptor string (e.g., `Bloomberg` or `MojoMoat`). This directly dictates your finalized file output name.
+   * **TARGET FILE LINK OR URL:** Paste your absolute destination routing node path (e.g., `https://psico-teleport.com` or local path strings `file:///C:/...`).
+   * **TARGET EMBLEM ICON:** Click the fully exposed **`BROWSE`** button on the right margin to open the native system file explorer panel.
+
+4. **Enforce the Visual File Constraints:**
+   **THE GRAPHICS HARDWARE RULE:** Every single custom imagery file chosen to represent your desktop shortcut **MUST be in pure, raw `.ico` container format**. The underlying Windows .NET Framework compiler engine (`csc.exe`) will violently reject standard raw `.png` or `.jpg` compression streams. The image must be pre-baked into a valid Win32 `.ico` structure to allow the `/win32icon` compiler flag to forcefully inject the visual asset bytes directly into the structural Portable Executable (PE) headers.
+
+5. **Pull the Forge Trigger:**
+   Smash the high-contrast **`FORGE TRUE BINARY SHORTCUT`** button at the base of the frame. The background thread will instantly capture your variable strings, auto-detect the native compiler, and within milliseconds, a pristine, custom-skinned, 4KB scanner-proof independent launcher executable tool will drop flat onto your desktop canvas grid, completely insulated for immediate double-click deployment!
+
+ SEE the shortcut catalogue for descriptions...  
+
 ---
 ===================================================================================
     🪐 PROTECTED PROPERTY OF PSICO COMMUNICATIONS // MATERIALIST REVERSION v1.1
