@@ -32,8 +32,8 @@ The architecture operates as a highly optimized, dual-stage automated pipeline:
 ### 📡 1. The Asset Harvester (`ico.py`)
 This script automates your graphic ingestion pass. It reads your predefined target array list strings, sweeps the web wire natively to pull down high-res visual icon emblems, and drops them cleanly into a local subdirectory folder called `.\harvested_icons\`.
 
-### ⚡ 2. The Bare-Metal Forge (`blue2.py`)
-This PowerShell/Python compiler loop provides the true technical edge. It sweeps every `.ico` container inside the `\harvested_icons\` subfolder, derives the absolute URL coordinate path from the filename tokens, and automatically locates your machine's native Windows .NET Framework C# compiler (`csc.exe`). 
+### ⚡ 2. The Bare-Metal Forge (`batch2`)
+This PowerShell compiler loop provides the true technical edge. It sweeps every `.ico` container inside the `\harvested_icons\` subfolder, derives the absolute URL coordinate path from the filename tokens, and automatically locates your machine's native Windows .NET Framework C# compiler (`csc.exe`). 
 
 It dynamically outputs a microscopic 5-line C# source stub code block, forcefully injects your custom icon bytes directly into the binary's structural Portable Executable (PE) resource headers via the `/win32icon` flag, and compiles it with the `/target:winexe` argument to suppress ugly background command prompt popups when clicked.
 
