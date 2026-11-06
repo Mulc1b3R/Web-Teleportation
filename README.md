@@ -74,7 +74,7 @@ If you want to bypass the automated pre-set domain arrays completely and forge a
 1. **Fire the Wizard Launcher Engine:**
    Run the master graphical interface from your terminal pane or PowerShell window:
    ```powershell
-   python shortcut_factory.py
+   python blue2.py
    ```
 
 2. **Expand the Terminal Window Canvas:**
