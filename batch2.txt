@@ -1,0 +1,81 @@
+# ===================================================================================
+# 🪐 PSICO NATIVE MICRO-BINARY BATCH FOUNDRY (TARGET COMPILATION TO FOLDER)
+# ===================================================================================
+
+# 🔍 Automatically locate the native Windows .NET compiler
+$windir = $env:SystemRoot
+$cscPath = Join-Path $windir "Microsoft.NET\Framework\v4.0.30319\csc.exe"
+
+if (-not (Test-Path $cscPath)) {
+    $cscPath = Join-Path $windir "Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+}
+
+if (-not (Test-Path $cscPath)) {
+    Write-Error "❌ ERROR: Native Windows .NET Compiler (csc.exe) could not be located. Aborting batch."
+    return
+}
+
+# 📁 DEFINE TARGET FOLDER: Creates a 'Web Shortcuts' folder on the desktop
+$desktopPath = [System.IO.Path]::Combine($env:USERPROFILE, "Desktop")
+$outputFolder = Join-Path $desktopPath "Web Shortcuts"
+
+if (-not (Test-Path $outputFolder)) {
+    New-Item -Path $outputFolder -ItemType Directory | Out-Null
+    Write-Host "📁 Created destination folder: $outputFolder" -ForegroundColor Cyan
+}
+
+# Process every harvested icon file in the directory
+Get-ChildItem -Path .\harvested_icons\*.ico | ForEach-Object {
+    $icoName = $_.Name
+    $icoFullPath = $_.FullName
+    $shortcutName = ($icoName -replace '\.ico$', '' -replace '_', ' ')
+    $safeName = $shortcutName -replace ' ', ''
+    $launcherStub = Join-Path $pwd "temp_${safeName}_stub.cs"
+    
+    # URL string derivation logic
+    $targetUrl = "https://" + ($icoName -replace '\.ico$', '' -replace '_', '.')
+    if ($icoName -eq "w3_org.ico") { $targetUrl = "https://w3.org" }
+    if ($icoName -eq "cboe_com.ico") { $targetUrl = "https://cboe.com" }
+    if ($icoName -eq "bloomberg_com.ico") { $targetUrl = "https://bloomberg.com" }
+
+    Write-Host "🪐 FORGING TRUE MICRO-BINARY: $shortcutName --> $targetUrl" -ForegroundColor Green
+    
+    # 🛠️ Write the clean C# snippet payload directly out to disk
+    $csharpCode = @"
+using System;
+using System.Diagnostics;
+class WebShortcut {
+    static void Main() {
+        Process.Start(new ProcessStartInfo("$targetUrl") { UseShellExecute = true });
+    }
+}
+"@
+    $csharpCode | Out-File -FilePath $launcherStub -Encoding utf8
+    
+    # Target location is now pointing inside the isolated folder
+    $targetDestinationPath = Join-Path $outputFolder "${shortcutName}.exe"
+    
+    if (Test-Path $targetDestinationPath) { Remove-Item $targetDestinationPath -Force }
+
+    # ⚡ Compile directly to the target folder using native csc.exe parameters
+    $compilerArgs = @(
+        "/target:winexe",
+        "/win32icon:$icoFullPath",
+        "/out:$targetDestinationPath",
+        $launcherStub
+    )
+    
+    & $cscPath $compilerArgs | Out-Null
+    
+    # Check execution success and clean up tracking source files
+    if (Test-Path $targetDestinationPath) {
+        Write-Host "🚀 SUCCESS: Deployed 4KB Shortcut straight to folder!" -ForegroundColor Green
+    } else {
+        Write-Host "❌ FORGE FAILED: Could not compile $shortcutName" -ForegroundColor Red
+    }
+    
+    Remove-Item -Path $launcherStub -Force -ErrorAction SilentlyContinue
+}
+
+# Clean old PyInstaller directory structures if they remain
+Remove-Item -Path build, dist -Recurse -Force -ErrorAction SilentlyContinue
