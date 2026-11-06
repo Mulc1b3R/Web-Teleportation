@@ -46,8 +46,7 @@ You do not need external dependencies, third-party software runtime installation
 ### Step 1: Clone the Infrastructure Basement
 Pull the raw script repository files flat onto your hard drive:
 ```powershell
-git clone https://github.com
-cd Web-Teleportation
+git clone https://github.com/Mulc1b3R/Web-Teleportation.git
 ```
 
 ### Step 2: Harvest Your Visual Identity Elements
